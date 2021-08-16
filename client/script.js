@@ -77,18 +77,18 @@ function csvToArray(str, delimiter = ",") {
   let rows;
   let data;
   if (headerRow.checked) {
-    // slice from start of text to the first \r\n index
+    // slice from start of text to the first \n index
     // use split to create an array from string by delimiter
-    headers = str.slice(0, str.indexOf("\r\n")).split(delimiter);
+    headers = str.slice(0, str.indexOf("\n")).split(delimiter);
 
     // slice from \n index + 2 to the end of the text
     // use split to create an array of each csv value row
-    rows = str.slice(str.indexOf("\r\n") + 2).split("\r\n");
+    rows = str.slice(str.indexOf("\n") + 2).split("\n");
     data = {
       header: headers,
     };
   } else {
-    rows = str.split("\r\n");
+    rows = str.split("\n");
     data = {
       header: "nada",
     };
