@@ -20,14 +20,4 @@ const pool = new Pool(
   process.env.NODE_ENV === "production" ? proConfig : devConfig
 );
 
-/*
-const pool = new Pool({
-  user: "postgres",
-  password: "dospek20",
-  host: "localhost",
-  port: 5432,
-  database: "ipa_app",
-});
-*/
-
 module.exports = pool;

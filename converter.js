@@ -14,7 +14,7 @@ async function processStr(str) {
       const ipaRes = await pool.query("SELECT ipa FROM ipa WHERE syl = $1", [
         converted.syl,
       ]);
-      converted.ipa = ipaRes.rows[0].ipa; //ipaLookup(converted.syl);
+      converted.ipa = ipaRes.rows[0].ipa;
       converted.ipaStyled = styleIpa(converted);
       converted.pinStyled = stylePinyin(converted);
       output.push(converted);
@@ -47,11 +47,11 @@ async function processStr(str) {
   });
 
   sentence.original = str;
-  //console.log(sentence);
+
   return sentence;
 }
 
-/* Small functions */
+/* Functions */
 
 function checkUnrecognizedSymbol(symbol) {
   if (symbol === "？") {
@@ -205,7 +205,7 @@ function stylePinyin(sylArr) {
   }
 }
 
-//Add <span> to ipa so I can style it with color
+//Add <span> to each ipa syllable so it can be styled
 function styleIpa(sylArr) {
   let tone = sylArr.tone;
   if (tone === 1) {
