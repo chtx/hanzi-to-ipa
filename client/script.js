@@ -1,7 +1,7 @@
 async function submitForm() {
   try {
     let stringa = document.querySelector("input").value;
-    const response = await fetch("http://localhost:5000/string", {
+    const response = await fetch("/string", {
       //http://localhost:5000
       method: "POST",
       headers: { "Content-Type": "application/json" },
