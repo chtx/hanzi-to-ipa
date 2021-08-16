@@ -11,10 +11,28 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    
-    <div class="container">
+
+    <div class="container mb-5">
         <h2 class="text-center mt-5">Hanzi to IPA App</h2>
-        <label class="h3 mt-5">Hanzi:</label>
+      </div>
+      <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs mt-5">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">CSV</a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane container active" id="home">
+
+            
+          <h3 class="mt-4">Hanzi:</h3>
+
         <form class="d-flex">
             <input
               type="text"
@@ -23,8 +41,7 @@
             <button type="button" class="btn btn-success" onclick="submitForm()">Transcribe</button>
           </form>
 
-        <h3 class="mt-5">Output:</h3>
-        <div class="mt-5">
+        <div class="mt-4">
             <h5>Original:</h5>
             <p id="original">...</p>
         </div>
@@ -42,10 +59,61 @@
             我的妈妈很漂亮。<br>
             他在说什么？</p>
         </div>
+      </div>
+      
+          
+      <div class="tab-pane container fade" id="menu1">
+          
+        <h3 class="mt-4">CSV:</h3>
 
+        <div class="container">
+          <div class="row">
+            <div class="col">
 
+        <form class="mt-4" id="csvForm">
+          <h5>Select CSV file:</h5>
+          <input type="file" id="csvFile" accept=".csv" />
+          <br />
+          <h5 class="mt-3">Header row:</h5>
+          <input type="checkbox" id="headerRow" name="header">
+          <label for="header">Data has header row</label>
+          <br />
+          <h5 class="mt-3">Column containing Hanzi:</h5>
+          <input type="number" id="columnNo" name="columnNo" min="1" max="30" value="1">
+          <label for="columnNo">(Default: 1st column)</label>
+          <br />
+          <h5 class="mt-3">Include in output file:</h5>
+          <input type="checkbox" id="inclIpa" name="inclIpa" checked>
+          <label for="inclIpa">IPA</label>
+          <input type="checkbox" id="inclIpaStyl" name="inclIpaStyl">
+          <label for="inclIpaStyl">IPA Styled</label>
+          <input type="checkbox" id="inclPinyin" name="inclPinyin">
+          <label for="inclPinyin">Pinyin</label>
+          <br />
+          <input class="mt-3 btn btn-success" type="submit" value="Submit" />
+        </form>
+      </div>
+      
+      <div class="col">
+
+        <div class="mb-5">
+          <h5 class="mt-4">Status:</h5>
+          <p id="status">...</p>
+          <a id="download-link" class="font-weight-bold"></a>
+        </div>
+        <div class="mb-5">
+          <h5 class="mt-4">Sample CSV files:</h5>
+          <a href="/test_csvs/test-hanzi.csv">test-hanzi.csv</a><br>
+          <a href="/test_csvs/test-hanzi-with-header.csv">test-hanzi-with-header.csv</a>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
 
     </div>
+  
+  
     
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
