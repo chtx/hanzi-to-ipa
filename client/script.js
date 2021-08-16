@@ -52,6 +52,7 @@ let inputName;
 csvForm.addEventListener("submit", function (e) {
   e.preventDefault(); // prevents browser from re-loading on submit
   document.querySelector("#status").innerText = "Processing...";
+  document.querySelector("#download-link").innerText = "";
   try {
     const input = csvFile.files[0];
     inputName = input.name;
