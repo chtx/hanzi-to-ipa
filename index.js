@@ -20,6 +20,7 @@ if (process.env.NODE_ENV === "production") {
 app.post("/string", async (req, res) => {
   try {
     const { string } = req.body;
+
     const processed = await converter.processStr(string);
 
     res.json(processed);

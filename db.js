@@ -10,7 +10,10 @@ const devConfig = {
 };
 
 const proConfig = {
-  connectionString: process.env.DATABASE_URL, //DATABASE_URL will be coming from Heroku PostgreSQL add on when it's in production
+  connectionString: process.env.DATABASE_URL, //DATABASE_URL will be coming from Heroku PostgreSQL add-on when it's in production
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 const pool = new Pool(
