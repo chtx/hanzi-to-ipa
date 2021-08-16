@@ -8,7 +8,6 @@ async function submitForm() {
       body: JSON.stringify({ string: stringa }),
     }).then(async (response) => {
       const jsonData = await response.json();
-      console.log(jsonData);
       const ipa = jsonData.appIpa;
       const pin = jsonData.appPinyin;
       const original = jsonData.original;
